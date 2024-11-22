@@ -11,6 +11,8 @@ import { MenuComponent } from './components/menu/menu.component';
 import { CrudComponent } from './pages/crud/crud.component';
 
 // ANGULAR MATERIAL
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
@@ -32,6 +34,8 @@ import { environment } from '../environments/environment.development';
     AppRoutingModule,
     FormsModule,
     // ANGULAR MATERIAL
+    MatFormFieldModule,
+    MatInputModule,  
     MatIconModule,
     MatProgressSpinnerModule,
     // FIREBASE

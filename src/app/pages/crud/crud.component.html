@@ -1,3 +1,22 @@
 <app-menu></app-menu>
 
-<p>crud works!</p>
+<div class="container-fluid pt-3">
+    
+    <div class="row">
+        <div class="col-12">
+            <h1 class="titulo">Cadastro de Usuários</h1>
+            <h2 class="subtitulo">Gerencie usuários: adicionando, editando e/ou excluindo</h2>
+        </div>
+    </div>
+
+    <div class="row mt-2">
+        <div class="col-12">
+            <app-button class="float-end" textButton="Novo Cadastro"></app-button>
+
+            <mat-form-field>
+                <mat-label>Filter</mat-label>
+                <input matInput (keyup)="applyFilter($event)" placeholder="Digite sua busca" #input>
+              </mat-form-field>
+        </div>
+    </div>
+</div>
