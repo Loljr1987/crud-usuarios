@@ -8,6 +8,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './pages/home/home.component';
 import { MenuComponent } from './components/menu/menu.component';
+import { CrudComponent } from './pages/crud/crud.component';
 
 // ANGULAR MATERIAL
 import { MatIconModule } from '@angular/material/icon';
@@ -23,7 +24,8 @@ import { environment } from '../environments/environment.development';
     ButtonComponent,
     LoginComponent,
     HomeComponent,
-    MenuComponent
+    MenuComponent,
+    CrudComponent
   ],
   imports: [
     BrowserModule,
