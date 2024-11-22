@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Observable } from 'rxjs';
+import { User } from '../interfaces/user';
 
 @Injectable({
   providedIn: 'root'
@@ -15,12 +16,12 @@ export class UsersService {
   }
 
   // Adicionar usuário
-  addUser(user: any) {
+  addUser(user: User) {
     return this.dataBaseStore.collection('users').add(user);
   }
 
   // Atualizar usuário por id
-  update(userId: string, user: any) {
+  update(userId: string, user: User) {
     return this.dataBaseStore.collection('users').doc(userId).update(user); 
   }
 
