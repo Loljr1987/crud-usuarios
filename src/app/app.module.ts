@@ -12,6 +12,7 @@ import { MenuComponent } from './components/menu/menu.component';
 // ANGULAR MATERIAL
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+
 // FIREBASE
 import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from '../environments/environment.development';
