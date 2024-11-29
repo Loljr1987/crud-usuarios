@@ -19,10 +19,12 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatDialogModule } from '@angular/material/dialog';
 
 // FIREBASE
 import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from '../environments/environment.development';
+import { ModalViewUserComponent } from './pages/crud/modal-view-user/modal-view-user.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,8 @@ import { environment } from '../environments/environment.development';
     LoginComponent,
     HomeComponent,
     MenuComponent,
-    CrudComponent
+    CrudComponent,
+    ModalViewUserComponent
   ],
   imports: [
     BrowserModule,
@@ -46,6 +49,7 @@ import { environment } from '../environments/environment.development';
     MatTableModule,
     MatSortModule,
     MatPaginatorModule,
+    MatDialogModule,
     // FIREBASE
     AngularFireModule.initializeApp(environment.firebaseConfig),
   ],

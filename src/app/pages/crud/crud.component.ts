@@ -4,6 +4,8 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { User } from '../../interfaces/user';
+import { MatDialog } from '@angular/material/dialog';
+import { ModalViewUserComponent } from './modal-view-user/modal-view-user.component';
 
 @Component({
   selector: 'app-crud',
@@ -19,7 +21,10 @@ export class CrudComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private usersService: UsersService) {}
+  constructor(
+    private usersService: UsersService,
+    public dialog: MatDialog, 
+  ) {}
     
 
   ngOnInit() {
@@ -58,5 +63,14 @@ export class CrudComponent implements OnInit {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+
+  // LOGICA DO MODAL
+  openModalViewUser(user: User) {
+    this.dialog.open(ModalViewUserComponent, {
+      width: '700px',
+      height: '330px',
+      data: user
+    })
   }
 }
