@@ -4,7 +4,7 @@ export interface User {
     sector: string,
     role: string,
     firebaseId?: string | number,
-    healthPan?: string,
-    dentalPan?: string,
+    healthPlan?: string,
+    dentalPlan?: string,
     // O '?' quer dizer que o campo é opcional.
 }
