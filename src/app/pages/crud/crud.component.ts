@@ -6,6 +6,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { User } from '../../interfaces/user';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalViewUserComponent } from './modal-view-user/modal-view-user.component';
+import { ModalFormUserComponent } from './modal-form-user/modal-form-user.component';
 
 @Component({
   selector: 'app-crud',
@@ -33,15 +34,13 @@ export class CrudComponent implements OnInit {
 
   getListUsers() {
     this.usersService.getAllUsers().subscribe({
-      next: (response: User[]) => {
+      next: (response: any) => {
+        
         this.listUsers = response;
-
-        this.dataSource.data = this.listUsers;
-
-        if (this.paginator && this.sort) {
-          this.dataSource.paginator = this.paginator;
-          this.dataSource.sort = this.sort;
-        }
+        this.dataSource = new MatTableDataSource<any>(this.listUsers);
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
+        this.paginator._intl.itemsPerPageLabel = "Usuários por Página"; // traduzir a paginação
       },
       error: (err) => {
         console.error(err);
@@ -73,4 +72,11 @@ export class CrudComponent implements OnInit {
       data: user
     })
   }
+  openModalAddUser() {
+    this.dialog.open(ModalFormUserComponent, {
+      width: '700px',
+      height: '400px',
+    }).afterClosed().subscribe(() => this.getListUsers()); 
+  }
+
 }

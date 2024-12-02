@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ButtonComponent } from './components/button/button.component';
 import { LoginComponent } from './pages/login/login.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './pages/home/home.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { CrudComponent } from './pages/crud/crud.component';
@@ -20,11 +20,14 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatSelectModule } from '@angular/material/select';
+
 
 // FIREBASE
 import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from '../environments/environment.development';
 import { ModalViewUserComponent } from './pages/crud/modal-view-user/modal-view-user.component';
+import { ModalFormUserComponent } from './pages/crud/modal-form-user/modal-form-user.component';
 
 @NgModule({
   declarations: [
@@ -34,13 +37,15 @@ import { ModalViewUserComponent } from './pages/crud/modal-view-user/modal-view-
     HomeComponent,
     MenuComponent,
     CrudComponent,
-    ModalViewUserComponent
+    ModalViewUserComponent,
+    ModalFormUserComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
+    ReactiveFormsModule,
     // ANGULAR MATERIAL
     MatIconModule,
     MatFormFieldModule,
@@ -50,6 +55,7 @@ import { ModalViewUserComponent } from './pages/crud/modal-view-user/modal-view-
     MatSortModule,
     MatPaginatorModule,
     MatDialogModule,
+    MatSelectModule,
     // FIREBASE
     AngularFireModule.initializeApp(environment.firebaseConfig),
   ],
