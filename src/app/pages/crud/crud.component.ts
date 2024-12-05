@@ -52,7 +52,8 @@ export class CrudComponent implements OnInit {
     this.usersService.deleteUser(firebaseId).then(
       (response: any) => {
         alert('Usuário excluído com sucesso!');
-      })
+      }
+    );
   }
   
   ngAfterViewInit() {
