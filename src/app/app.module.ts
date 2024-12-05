@@ -38,7 +38,7 @@ import { ModalFormUserComponent } from './pages/crud/modal-form-user/modal-form-
     MenuComponent,
     CrudComponent,
     ModalViewUserComponent,
-    ModalFormUserComponent
+    ModalFormUserComponent,
   ],
   imports: [
     BrowserModule,

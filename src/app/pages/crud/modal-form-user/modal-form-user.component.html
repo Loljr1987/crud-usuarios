@@ -1,7 +1,8 @@
 <div class="container-fluid p-3">
     <mat-icon class="float-end hover" (click)="closeModal()">close</mat-icon>
 
-    <h1 class="titulo">Formulário de Usuário</h1>
+    <h1 class="titulo" *ngIf="editUser">Editando Usuário</h1>
+    <h1 class="titulo" *ngIf="!editUser">Cadastrando Usuário</h1>
     <h2 class="subtitulo">Para cadastrar o usuário, preencha o formulário.</h2>
 
     <form class="row" [formGroup]="formUser">
@@ -41,7 +42,7 @@
         <div class="col-12 col-md-6 mb-2">
             <mat-form-field class="w-100">
                 <mat-label> <mat-icon>local_hospital</mat-icon>Plano de Saúde</mat-label>
-                <mat-select formControlName="heathPlan">
+                <mat-select formControlName="healthPlan">
                   @for (plano of planosSaude; track plano) {
                     <mat-option [value]="plano.descricao">{{plano.descricao}}</mat-option>                  }
                 </mat-select>
@@ -50,7 +51,7 @@
 
         <div class="col-12 col-md-6 mb-2">
             <mat-form-field class="w-100">
-                <mat-label> <mat-icon>favorite</mat-icon> Plano Odontológico</mat-label>
+                <mat-label> <mat-icon>favorite</mat-icon>Plano Odontológico</mat-label>
                 <mat-select formControlName="dentalPlan">
                     <mat-option *ngFor="let planoOdont of planosOdonto" [value]="planoOdont.descricao">{{planoOdont.descricao}}</mat-option>
                 </mat-select>

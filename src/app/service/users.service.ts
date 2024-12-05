@@ -18,11 +18,12 @@ export class UsersService {
     return this.dataBaseStore.collection('users').add(user);
   }
 
-  updateUser(userId: string, user: User) {
+  update(userId: string, user: User) {
     return this.dataBaseStore.collection('users').doc(userId).update(user);
   }
 
   deleteUser(userId: string) {
     return this.dataBaseStore.collection('users').doc(userId).delete();
   }
+
 }

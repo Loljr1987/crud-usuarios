@@ -31,7 +31,7 @@ export class CrudComponent implements OnInit {
   ngOnInit() {
     this.getListUsers();
   }
-
+  // FUNÇÕES DE USUÁRIOS
   getListUsers() {
     this.usersService.getAllUsers().subscribe({
       next: (response: any) => {
@@ -47,14 +47,22 @@ export class CrudComponent implements OnInit {
       }
     });
   }
-
+  
+  deleteUser(firebaseId: string) {
+    this.usersService.deleteUser(firebaseId).then(
+      (response: any) => {
+        alert('Usuário excluído com sucesso!');
+      })
+  }
+  
   ngAfterViewInit() {
     if (this.dataSource) {
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
     }
   }
-
+  // FIM DAS FUNÇÕES DOS USUÁRIOS
+  
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -72,11 +80,19 @@ export class CrudComponent implements OnInit {
       data: user
     })
   }
+  
   openModalAddUser() {
     this.dialog.open(ModalFormUserComponent, {
       width: '700px',
       height: '400px',
     }).afterClosed().subscribe(() => this.getListUsers()); 
   }
-
+  
+  openModalEditUser(user: User) {
+    this.dialog.open(ModalFormUserComponent, {
+      width: '700px',
+      height: '400px',
+      data: user
+    }).afterClosed().subscribe(() => this.getListUsers()); 
+  }
 }
